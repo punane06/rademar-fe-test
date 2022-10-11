@@ -1,0 +1,91 @@
+.product__container {
+  background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 50px;
+}
+
+.card {
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  overflow: hidden;
+  margin: 10px;
+}
+.card__image {
+  width: 100%;
+  position: relative;
+}
+
+.card__image--picture {
+  border-radius: 4px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.card__content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 5px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.card__brand {
+  color: #959595;
+  font-size: 13px;
+}
+.card___content--left {
+  text-align: start;
+  height: 100pxscan;
+}
+
+.card__button {
+  background-color: #2d7e17;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-top: 10px;
+}
+
+.card__discountPercentage {
+  background-color: #ffca05;
+  padding: 8px;
+  border-radius: 4px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.card__price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card__price__container {
+  /* background: rgb(155, 134, 134); */
+  display: flex;
+  color: #ffca05;
+  line-height: 20px;
+}
+.card__price--discount {
+  font-size: 13px;
+  text-decoration: line-through;
+  color: black;
+  margin-left: 3px;
+  display: block;
+  min-width: 34px;
+}
+.card__price--hint {
+  font-size: 12px;
+  font-weight: 500;
+  padding-top: -15px;
+  margin-top: -15px;
+}
