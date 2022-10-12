@@ -54,6 +54,16 @@
   margin-top: 10px;
 }
 
+.card__button--disable {
+  background-color: #747474;
+  color: white;
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-top: 10px;
+  cursor: not-allowed;
+  pointer-events: all;
+}
+
 .card__discountPercentage {
   background-color: #ffca05;
   padding: 8px;

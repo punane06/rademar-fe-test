@@ -5,6 +5,7 @@ const API_URL = "https://dummyjson.com/";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [disable, setDisable] = useState({});
 
   useEffect(() => {
     fetch(`${API_URL}products`)
@@ -27,8 +28,15 @@ function App() {
       }),
     })
       .then((res) => res.json())
+
       .then((res) => {
         console.log(res);
+        console.log(res.id);
+
+        if (!res.id) setDisable({ ...disable, [res.id]: res.id });
+        else {
+          setDisable(false);
+        }
       });
     console.log("Add to cart", productId);
     // Add to cart request: https://dummyjson.com/docs/carts#update
@@ -57,11 +65,13 @@ function App() {
               <div className="card___content--left">
                 <h5 className="card__brand">{product.brand}</h5>
                 <h5 className="card__title">{product.title}</h5>
-                {product.status === 404 && <div>HELLO</div>}
+                {/* TODO saada kätte, mis tingimusel on nupp disable ja et ta mõjutaks vaid kindlat produktigit add*/}
                 <button
-                  // <CardBody className={`${!isUnlocked && 'blur-2px'}`}>
-
-                  className={`card__button card__button`}
+                  className={`${
+                    disable && { ...disable, [product.id]: product.id }
+                      ? "card__button"
+                      : "card__button--disable"
+                  }`}
                   onClick={() => addToCart(product.id)}
                 >
                   Lisa ostukorvi
