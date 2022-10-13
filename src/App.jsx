@@ -23,23 +23,21 @@ function App() {
         products: [
           {
             id: productId,
+            quantity: 1,
           },
         ],
       }),
     })
       .then((res) => res.json())
-
       .then((res) => {
         console.log(res);
-        console.log(res.id);
-
-        if (!res.id) setDisable({ ...disable, [res.id]: res.id });
-        else {
+        if (!res.message) {
           setDisable(false);
+        } else {
+          setDisable(true);
+          alert(res.message);
         }
       });
-    console.log("Add to cart", productId);
-    // Add to cart request: https://dummyjson.com/docs/carts#update
   };
 
   return (
@@ -68,9 +66,7 @@ function App() {
                 {/* TODO saada kätte, mis tingimusel on nupp disable ja et ta mõjutaks vaid kindlat produktigit add*/}
                 <button
                   className={`${
-                    disable && { ...disable, [product.id]: product.id }
-                      ? "card__button"
-                      : "card__button--disable"
+                    disable ? "card__button" : "card__button--disable"
                   }`}
                   onClick={() => addToCart(product.id)}
                 >
